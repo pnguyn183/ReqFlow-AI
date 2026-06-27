@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: ReqFlow AI
+    orgId: 1
+    folder: ReqFlow AI
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards

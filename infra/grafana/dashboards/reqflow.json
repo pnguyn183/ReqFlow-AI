@@ -1,0 +1,24 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "API request rate",
+      "targets": [{ "expr": "sum(rate(reqflow_http_requests_total[5m]))", "legendFormat": "requests/s" }],
+      "gridPos": { "h": 9, "w": 12, "x": 0, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "P95 latency",
+      "targets": [{ "expr": "histogram_quantile(0.95, sum(rate(reqflow_http_request_duration_seconds_bucket[5m])) by (le))", "legendFormat": "p95" }],
+      "gridPos": { "h": 9, "w": 12, "x": 12, "y": 0 }
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": ["reqflow", "fastapi"],
+  "templating": { "list": [] },
+  "time": { "from": "now-6h", "to": "now" },
+  "title": "ReqFlow AI Operations",
+  "uid": "reqflow-ai"
+}
